@@ -1,0 +1,5 @@
+.DS_Store
+Images/
+Carthage/
+*/xcuserdata/*
+MisterHotPot.xcodeproj/project.xcworkspace/xcuserdata/*
