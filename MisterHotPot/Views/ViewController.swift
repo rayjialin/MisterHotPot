@@ -25,13 +25,30 @@ class ViewController: UIViewController {
         collectionView.delegate = self
         collectionView.backgroundColor = .black
         collectionView.register(LocationCVCell.self, forCellWithReuseIdentifier: locationCellId)
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let indexPath = sender as? IndexPath else { return }
+        var id = ""
+        
+        switch indexPath.row {
+        case 0:
+            id = brooklynYelpID
+        case 1:
+            id = flushingYelpID
+        default:
+            print("invalid location selected")
+        }
+        
     }
 
 }
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: segueToTabVC, sender: self)
+        performSegue(withIdentifier: segueToTabVC, sender: indexPath)
     }
 }
 

@@ -7,24 +7,49 @@
 //
 
 import Foundation
-import Alamofire
-
 
 class NetworkManager {
     
-    func getBusinessDetail(id: String) {
-        Alamofire.request(endPoint + id).responseJSON { (response) in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")
+    static let shared = NetworkManager()
+
+    private init() {}
+    
+    func getBusinessDetail(id: String, completion: @escaping (YelpDataModel?, Error?)->(YelpDataModel?)) {
+    
+        guard let url = URL(string: endPoint + id) else { return }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "GET"
+        urlRequest.allHTTPHeaderFields = [contentType: applicationJson,
+                                          authorization: token]
+        
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
+            guard let data = data else {
+                print("no data returned from server \(String(describing: error?.localizedDescription))")
+                return
             }
             
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
+            guard let response = response as? HTTPURLResponse else {
+                print("no response returned from server \(String(describing: error))")
+                return
             }
+            
+            guard response.statusCode == 200 else {
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            do {
+                let yelpDataModel = try decoder.decode(YelpDataModel.self, from: data)
+                completion(yelpDataModel, error)
+            }catch {
+                print("Decode failed")
+                completion(nil, error)
+            }
+            
         }
+        dataTask.resume()
     }
 }

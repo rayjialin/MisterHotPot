@@ -9,11 +9,19 @@
 import UIKit
 
 class AboutViewController: UIViewController {
-
+    
+    var yelpDataModel: YelpDataModel? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+//        NetworkManager.shared.getBusinessDetail(id: brooklynYelpID) { (data, error) -> (YelpDataModel?) in
+//            
+//            guard let data = data else { return nil }
+//            self.yelpDataModel = data
+//            return data
+//        }
+        
     }
 
 }

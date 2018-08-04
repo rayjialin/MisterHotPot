@@ -13,6 +13,12 @@ class MenuViewController: UIViewController {
     
     var webView: WKWebView!
     
+    let activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return activityIndicator
+    }()
+    
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
@@ -22,17 +28,30 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         guard let menuURL = URL(string: brooklynMenuURL) else { return }
         let menuRequest = URLRequest(url: menuURL)
         webView.load(menuRequest)
+        webView.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        webView.isOpaque = false
         
+        setupConstraint()
+        
+    }
+    
+    fileprivate func setupConstraint() {
+        activityIndicator.centerXAnchor.constraint(equalTo: webView.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: webView.centerYAnchor).isActive = true
     }
 }
 
 extension MenuViewController: WKNavigationDelegate {
-    
+
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+
+        // disable activity indicator
+        activityIndicator.stopAnimating()
         
         // disable clicking event
         webView.evaluateJavaScript("document.documentElement.style.webkitUserSelect='none'")

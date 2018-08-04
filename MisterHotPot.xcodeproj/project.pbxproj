@@ -23,8 +23,6 @@
 		38ED88E121121A9B0020A8AD /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ED88E021121A9B0020A8AD /* LocationsViewController.swift */; };
 		38ED88E321121AAD0020A8AD /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ED88E221121AAD0020A8AD /* ReviewViewController.swift */; };
 		38ED88E52114B9750020A8AD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ED88E42114B9750020A8AD /* NetworkManager.swift */; };
-		38ED88E72114B9A20020A8AD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38ED88E62114B9A10020A8AD /* Alamofire.framework */; };
-		38ED88E82114B9A20020A8AD /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 38ED88E62114B9A10020A8AD /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,7 +32,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				38ED88E82114B9A20020A8AD /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,7 +57,6 @@
 		38ED88E021121A9B0020A8AD /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		38ED88E221121AAD0020A8AD /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		38ED88E42114B9750020A8AD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		38ED88E62114B9A10020A8AD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38ED88E72114B9A20020A8AD /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +73,6 @@
 		38ED88AB2110C3E30020A8AD = {
 			isa = PBXGroup;
 			children = (
-				38ED88E62114B9A10020A8AD /* Alamofire.framework */,
 				38ED88B62110C3E30020A8AD /* MisterHotPot */,
 				38ED88B52110C3E30020A8AD /* Products */,
 			);

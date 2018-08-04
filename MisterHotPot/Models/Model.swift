@@ -11,47 +11,47 @@ import UIKit
 let locationModel = [#imageLiteral(resourceName: "bkLocation"), #imageLiteral(resourceName: "FlushingLocation")]
 
 struct YelpDataModel: Codable {
-    let id: String?
-    let categories: [Categories]?
-    let coordinates: Coordinates?
-    let displayPhone: String?
-    let hours: [Hours]?
-    let alias: String?
-    let imageUrl: String?
-    let isClaimed: Bool?
-    let isClosed: Bool?
-    let location: Location?
-    let name: String?
-    let phone: String?
-    let photos: [String]?
+    let id: String
+    let categories: [Categories]
+    let coordinates: Coordinates
+    let displayPhone: String
+    let hours: [Hours]
+    let alias: String
+    let imageUrl: String
+    let isClaimed: Bool
+    let isClosed: Bool
+    let location: Location
+    let name: String
+    let phone: String
+    let photos: [String]
     let price: String
-    let rating: Float?
-    let reviewCount: Int?
-    let url: String?
-    let transactions: [String]?
+    let rating: Float
+    let reviewCount: Int
+    let url: String
+    let transactions: [String]
 }
 
 struct Categories: Codable {
-    let alias: String?
-    let title: String?
+    let alias: String
+    let title: String
 }
 
 struct Coordinates: Codable {
-    let latitude: String?
-    let longitude: String?
+    let latitude: Double
+    let longitude: Double
 }
 
 struct Hours: Codable {
-    let isOpenNow: Bool?
-    let hoursType: String?
-    let open: [Open]?
+    let isOpenNow: Bool
+    let hoursType: String
+    let open: [Open]
 }
 
 struct Open: Codable {
-    let day: Int?
-    let start: String?
-    let end: String?
-    let isOvernight: Bool?
+    let day: Int
+    let start: String
+    let end: String
+    let isOvernight: Bool
 }
 
 struct Location: Codable {

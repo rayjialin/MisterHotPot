@@ -10,6 +10,8 @@ import UIKit
 
 class TabViewController: UITabBarController {
 
+    var yelpDataModel: YelpDataModel? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,6 +20,7 @@ class TabViewController: UITabBarController {
         navigationItem.titleView = imageView
         navigationItem.setHidesBackButton(true, animated: true)
         tabBar.barTintColor = .black
+    
         
     }
     

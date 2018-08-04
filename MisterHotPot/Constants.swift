@@ -15,10 +15,16 @@ let flushingYelpID = "_dcpQAFoeUDJdYXRdFBr5Q"
 // api key
 let apiKey = "go7iuQW6F3kub5675ECuZhBMueAT8Hoxd29o8TZ57fP9AcdwXUd90txGci4-C2ykHZb2MWFKagINkG2RaQFdt2s79PNY3fXXLNlPVNz2ww_8n7ozBRtTQbHqvY3kWnYx"
 let endPoint = "https://api.yelp.com/v3/businesses/"
+let contentType = "Content-Type"
+let applicationJson = "application/json"
+let authorization = "Authorization"
+let token = "bearer " + apiKey
 
 // location based constants
 let brooklynMenuURL = "http://www.misterhotpotnyc.com/brooklyn/menu"
 let flushingMenuURL = "http://www.misterhotpotnyc.com/flushing/menu.html"
+
+// yelp data in JSON
 
 // cell ID
 let locationCellId = "locationCellId"
